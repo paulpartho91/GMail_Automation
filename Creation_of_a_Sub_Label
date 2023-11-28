@@ -1,0 +1,19 @@
+// Creation of a Sub Label
+	@Test(priority = 3 , dependsOnMethods = {"Creation_of_a_Lavel"})
+	public void Creation_of_a_Sub_Lavel() {
+		
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='aAu arN' and @role='button']")));
+		actions.moveToElement(element).click().build().perform();
+		
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='xx']")));
+		actions.moveToElement(element).sendKeys("Sub 1").build().perform();
+		
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='checkbox']")));
+		actions.moveToElement(element).click().build().perform();
+		
+		Select drpLabelSelect = new Select(driver.findElement(By.xpath("//select[@class='xx']")));
+		drpLabelSelect.selectByVisibleText("Test Label");
+		
+		driver.findElement(By.xpath("//button[contains(text(),'Create')]")).click();
+		
+	}
