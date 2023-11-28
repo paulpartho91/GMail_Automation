@@ -1,0 +1,17 @@
+#Creation of a Lavel
+
+	@Test(priority = 2 , dependsOnMethods = {"Log_In"} , enabled = true)
+	public void Creation_of_a_Lavel() {
+
+		WebElement LabelCreation = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='aAu arN' and @role='button']")));
+		actions.moveToElement(LabelCreation).click().build().perform(); // Clicking the "+" sign to create a Label
+		
+		WebElement Label = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//input[@class='xx']")));
+		actions.moveToElement(Label).sendKeys("LABEL Testing").build().perform(); // Mentioning the  name of the Label
+		
+		WebElement CreateButton = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Create')]")));
+		CreateButton.click();
+		
+	}
