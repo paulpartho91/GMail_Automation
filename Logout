@@ -1,0 +1,10 @@
+// Logout
+	@Test(priority = 6 , dependsOnMethods = {"Creation_of_a_Sub_Lavel_with_the_help_of_Actions_Class"} , timeOut = 10000)
+	public void logout() {
+
+		actions.moveToElement(driver.findElement(By.xpath("//a[@class='gb_d gb_Da gb_H' and @role='button']"))).click()
+				.build().perform();
+		// JavascriptExecutor jExecutor = (JavascriptExecutor ) builder;
+		actions.moveToElement(driver.findElement(By.linkText("Sign out"))).click().build().perform();
+
+	}
