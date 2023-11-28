@@ -1,0 +1,13 @@
+# Removal of a Label
+	@Test(priority = 4 , dependsOnMethods = {"Creation_of_a_Sub_Lavel"} , timeOut = 20000)
+	public void Removal_of_a_Sub_Lavel() {
+		
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='pM aj0' and @data-label-name='Test Label/sub Label 1']")));
+		actions.moveToElement(element).click().build().perform();
+		
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Remove label')]")));
+		actions.moveToElement(element).click().build().perform();
+		
+		actions.moveToElement(driver.findElement(By.xpath("//button[contains(text(),'Delete')]"))).click().build()
+				.perform();
+	}
